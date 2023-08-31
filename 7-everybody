@@ -1,4 +1,4 @@
-
 #!/bin/bash
--rwxr-x--x
+
+chmod ugo+x hello
 
