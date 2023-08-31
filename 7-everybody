@@ -1,4 +1,4 @@
 
 #!/bin/bash
-chmod ugo+x hello
+-rwxr-x--x
 
