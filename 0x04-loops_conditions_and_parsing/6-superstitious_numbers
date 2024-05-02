@@ -11,6 +11,10 @@ while [ $counter -lt 21 ]; do
 			echo $counter
 			echo "bad luck from Japan"
 			;;
+		17)
+			echo $counter
+			echo "bad luck from Italy"
+			;;
 		*)
 			echo $counter
 			;;
