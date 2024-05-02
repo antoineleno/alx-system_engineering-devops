@@ -2,6 +2,6 @@
 # This script is displaying "Best School" 10 times
 
 for _ in $(seq 1 10); do
-    echo "Antoine"
+    echo "Best School"
 done
 
