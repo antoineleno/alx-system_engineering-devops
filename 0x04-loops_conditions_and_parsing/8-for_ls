@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
-# This script to display the content of the current directory
+# This script displays the content of the current directory
 
-ls
+for i in *; do
+    echo "$i"
+done
+
