@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # This script displays information about a file
 
+school="example.txt"
 if [ -e "$school" ]; then
     echo "school file exists"
     if [ -s "$school" ]; then
