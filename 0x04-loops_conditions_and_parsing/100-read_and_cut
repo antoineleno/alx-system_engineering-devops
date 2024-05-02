@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Set the input field separator to :
+IFS=":"
+
+# Open /etc/passwd file for reading
+while read -r username _ userid _ home_directory _; do
+    echo "Username: $username"
+    echo "User ID: $userid"
+    echo "Home Directory: $home_directory"
+done < /etc/passwd
