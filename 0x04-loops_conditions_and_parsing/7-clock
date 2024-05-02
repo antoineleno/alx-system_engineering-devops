@@ -3,13 +3,15 @@
 hour_counter=0
 min_counter=1
 
-while [ $hour_counter -lt 13 ]; do
+while [ $hour_counter -lt 13 ];
+do
 
 	echo "Hour $hour_counter"
-	while [ $min_counter -lt 60 ]; do
+	while [ $min_counter -lt 60 ];
+	do
 		echo "$min_counter"
-		((min_counter++))
+		(( min_counter++ ))
 	done
 	min_counter=0
-	((hour_counter++))
+	(( hour_counter++ ))
 done
