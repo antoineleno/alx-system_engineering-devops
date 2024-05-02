@@ -5,7 +5,7 @@ while [ $counter -lt 10 ]; do
     echo "Best School"
     if [ $counter = 8 ]; then
 	    echo "Best School"
-	    echo "hi"
+	    echo "Hi"
     fi
     ((counter++))
 done
