@@ -2,15 +2,21 @@
 # This script is displaying "Best School" 10 times
 counter=1
 while [ $counter -lt 21 ]; do
-	echo "$counter"
-	if [ $counter = 4  ]; then
-		echo "bad luck from China"
-	elif [ $counter = 9 ]; then
-		echo "bad luck from Japan"
-	elif [ $counter = 17 ]; then
-		echo "bad luck from Italy"
-       	fi
-	((counter++))
+	case $counter in
+		4)
+			echo $counter
+			echo "bad luck from China"
+			;;
+		9)
+			echo $counter
+			echo "bad luck from Japn"
+			;;
+		*)
+			echo $counter
+			;;
+esac
+
+((counter++))
 done
 
 
