@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 # This script display informations about all processes running
+# Must show all processes
+# Dispaly a user-oriented format
+# Show process hierachy
 ps aux
