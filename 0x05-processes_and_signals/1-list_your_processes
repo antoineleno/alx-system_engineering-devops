@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This script display informations about all processes running
+
+ps aux
+
