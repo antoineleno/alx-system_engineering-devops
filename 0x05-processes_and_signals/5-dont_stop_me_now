@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script create and infinite loop then is stop by kill
+
+value=$(pgrep -f "4-to_infinity_and_beyond")
+
+kill "$value"
+
