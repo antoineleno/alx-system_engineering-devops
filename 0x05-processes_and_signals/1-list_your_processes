@@ -3,4 +3,4 @@
 # Must show all processes
 # Dispaly a user-oriented format
 # Show process hierachy
-ps aux
+ps -a -x -u -f
