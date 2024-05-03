@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This script create an infinite loops while sleeping for 2 seconds
+
+while true; do
+	echo "To infinity and beyond"
+	sleep 2
+done
+
