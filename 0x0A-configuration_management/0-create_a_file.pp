@@ -1,3 +1,4 @@
+# Ensure file /tmp/school exists with specific permissions, owner, and content
 file { '/tmp/school':
   ensure  => file,
   mode    => '0744',
@@ -5,4 +6,3 @@ file { '/tmp/school':
   group   => 'www-data',
   content => "I love Puppet\n",
 }
-ss
