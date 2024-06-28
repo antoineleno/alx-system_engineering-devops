@@ -1,6 +1,5 @@
-# Install falsk version 2.1.0 using pip3
-
-package { 'flask':
-  ensure   => '2.1.0',
-  provider => 'pip3',
+# Install package
+package { 'puppet-lint':
+  ensure   => '2.5.0',
+  provider => 'gem'
 }
