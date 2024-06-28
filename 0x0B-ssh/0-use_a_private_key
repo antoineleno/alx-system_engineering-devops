@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Connection to a remote server using ssk=h private key
+
+server="100.25.143.96"
+ssh -i ~/.ssh/school ubuntu@$server
