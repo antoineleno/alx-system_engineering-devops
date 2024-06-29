@@ -1,3 +1,4 @@
+#!/usr/bin/env
 # Define the SSH client configuration file for global settings
 file { '/etc/ssh/ssh_config':
   ensure  => present,
