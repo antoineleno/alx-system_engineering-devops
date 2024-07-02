@@ -1,26 +1,23 @@
 #!/usr/bin/env bash
-# File:   7-puppet_install_nginx_web_server.pp
-# Author: Alex Orland Arévalo Tribaldos
-# email:  <3915@holbertonschool.com>
+# Update package lists and install Nginx if not already installed
 
-# Using Puppet| Install Nginx server, setup and configuration
+sudo apt update
+sudo apt install -y nginx
 
-package { 'nginx':
-  ensure => 'installed'
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
+
+redirect_config="
+location /redirect_me {
+    return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
 }
+"
 
-file { '/var/www/html/index.html':
-  content => 'Hello World',
-}
+sudo sed -i '/^\s*location \/ \{/,/^\s*\}/ { /^\s*\}/ i\
+'"$redirect_config"'
+}' /etc/nginx/sites-available/default
 
-file_line { 'redirection-301':
-  ensure => 'present',
-  path   => '/etc/nginx/sites-available/default',
-  after  => 'listen 80 default_server;',
-  line   => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
-}
+sudo nginx -t
 
-service { 'nginx':
-  ensure  => running,
-  require => Package['nginx'],
-}
+sudo systemctl reload nginx
+
+echo "Nginx has been configured to redirect /redirect_me to https://www.youtube.com/watch?v=QH2-TGUlwu4 with a 301 status code."
