@@ -8,7 +8,7 @@ sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.ba
 
 redirect_config="
 location /redirect_me {
-    return 301 https://tome.app/antoine-leno/untitled-tome-clogxbml503t5mu7aahmh88id;
+    return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
 }
 "
 
@@ -20,4 +20,4 @@ sudo nginx -t
 
 sudo systemctl reload nginx
 
-echo "Nginx has been configured to redirect /redirect_me to https://tome.app/antoine-leno/untitled-tome-clogxbml503t5mu7aahmh88id with a 301 status code."
+echo "Nginx has been configured to redirect /redirect_me to https://www.youtube.com/watch?v=QH2-TGUlwu4 with a 301 status code."
