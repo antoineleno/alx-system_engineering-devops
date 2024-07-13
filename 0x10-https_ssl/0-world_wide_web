@@ -5,13 +5,11 @@ get_subdomain_info() {
     local domain=$1
     local subdomain=$2
 
-    # Declare and assign separately to avoid masking return values
     local record
     record=$(dig +short "${subdomain}.${domain}")
 
-    # Check if a record was found
     if [ -n "$record" ]; then
-        echo "The subdomain ${subdomain} is an A record and points to ${record}"
+        echo "The subdomain ${subdomain} is a A record and points to ${record}"
     else
         echo "No DNS record found for ${subdomain}.${domain}"
     fi
