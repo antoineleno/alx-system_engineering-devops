@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-apt-get update -y && apt-get install -y nginx
-sed -i 's/listen 80 default_server;/listen 80 default_server;\n    listen [::]:80 default_server;/' /etc/nginx/sites-available/default
-sed -i 's/root \/var\/www\/html;/root \/var\/www\/html;\n    index index.html index.htm index.nginx-debian.html;/' /etc/nginx/sites-available/default
-systemctl restart nginx
+# Installing new server to serve content in east way
+./0-nginx_likes_port_80
+echo "hi" > /var/run/nginx.pid
+echo "hi" > /run/nginx.pid

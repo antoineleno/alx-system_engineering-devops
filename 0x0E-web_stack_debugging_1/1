@@ -1,0 +1,51 @@
+Hit:1 https://dl.google.com/linux/chrome/deb stable InRelease
+Hit:2 https://deb.nodesource.com/node_14.x jammy InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu jammy InRelease
+Hit:4 https://packagecloud.io/cs50/repo/ubuntu jammy InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+nginx is already the newest version (1.18.0-6ubuntu14).
+0 to upgrade, 0 to newly install, 0 to remove and 3 not to upgrade.
+Synchronizing state of nginx.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable nginx
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    server_name _;
+    root /var/www/html;
+
+    index index.html index.htm index.nginx-debian.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sat 2024-07-13 22:11:38 +08; 11ms ago
+       Docs: man:nginx(8)
+    Process: 27955 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+    Process: 27956 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+   Main PID: 27957 (nginx)
+      Tasks: 9 (limit: 9002)
+     Memory: 7.8M
+        CPU: 33ms
+     CGroup: /system.slice/nginx.service
+             ├─27957 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"
+             ├─27958 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+             ├─27959 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+             ├─27960 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+             ├─27961 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+             ├─27962 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+             ├─27963 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+             ├─27964 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+             └─27965 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+
+Jul 13 22:11:37 antoine-HP-Laptop-15-dy2xxx systemd[1]: Starting A high performance web server and a reverse proxy server...
+Jul 13 22:11:38 antoine-HP-Laptop-15-dy2xxx systemd[1]: Started A high performance web server and a reverse proxy server.
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN     
+tcp6       0      0 :::80                   :::*                    LISTEN     
