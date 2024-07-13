@@ -1,0 +1,35 @@
+#!/bin/bash
+# Function to get DNS record information
+
+get_subdomain_info() {
+    local domain=$1
+    local subdomain=$2
+
+    local record=$(dig +short ${subdomain}.${domain})
+
+    if [ -n "$record" ]; then
+        echo "The subdomain ${subdomain} is an A record and points to ${record}"
+    else
+        echo "No DNS record found for ${subdomain}.${domain}"
+    fi
+}
+
+main() {
+    local domain=$1
+    local subdomain=$2
+
+    if [ -z "$domain" ]; then
+        echo "Domain parameter is required."
+        exit 1
+    fi
+
+    if [ -n "$subdomain" ]; then
+        get_subdomain_info $domain $subdomain
+    else
+        for sub in www lb-01 web-01 web-02; do
+            get_subdomain_info $domain $sub
+        done
+    fi
+}
+
+main $1 $2
