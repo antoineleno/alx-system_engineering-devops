@@ -1,12 +1,15 @@
 #!/bin/bash
-# Function to get DNS record information
 
+# Function to get DNS record information
 get_subdomain_info() {
     local domain=$1
     local subdomain=$2
 
-    local record=$(dig +short ${subdomain}.${domain})
+    # Declare and assign separately to avoid masking return values
+    local record
+    record=$(dig +short "${subdomain}.${domain}")
 
+    # Check if a record was found
     if [ -n "$record" ]; then
         echo "The subdomain ${subdomain} is an A record and points to ${record}"
     else
@@ -14,22 +17,28 @@ get_subdomain_info() {
     fi
 }
 
+# Main function to handle input parameters
 main() {
     local domain=$1
     local subdomain=$2
 
+    # Check if domain is provided
     if [ -z "$domain" ]; then
         echo "Domain parameter is required."
         exit 1
     fi
 
+    # If subdomain is provided, get info for that subdomain
     if [ -n "$subdomain" ]; then
-        get_subdomain_info $domain $subdomain
+        get_subdomain_info "$domain" "$subdomain"
     else
+        # If no subdomain is provided, get info for default subdomains
         for sub in www lb-01 web-01 web-02; do
-            get_subdomain_info $domain $sub
+            get_subdomain_info "$domain" "$sub"
         done
     fi
 }
 
-main $1 $2
+# Ignore shellcheck SC2086
+# shellcheck disable=SC2086
+main "$1" "$2"
