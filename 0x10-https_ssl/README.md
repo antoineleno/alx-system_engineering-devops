@@ -1,5 +1,5 @@
 # Background Context
-* What happens when you don’t secure your website traffic?
+## What happens when you don’t secure your website traffic?
 ![Boum!!!!](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/276/xCmOCgw.gif)
 
 # Resources
