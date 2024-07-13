@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# Installing new server to serve content in east way
-./0-nginx_likes_port_80
-echo "hi" > /var/run/nginx.pid
-echo "hi" > /run/nginx.pid
+# Do tack one in very esasy wat
+sed -i 's/listen 80;/listen 80 default_server;/g' /etc/nginx/sites-available/default
+nginx -s reload
