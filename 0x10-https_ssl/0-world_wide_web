@@ -1,6 +1,6 @@
 #!/bin/bash
-
 # Function to get DNS record information
+
 get_subdomain_info() {
     local domain=$1
     local subdomain=$2
