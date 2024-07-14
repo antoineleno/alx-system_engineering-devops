@@ -31,6 +31,7 @@
 * DOMAIN='example.com' sudo -E bash -c 'cat /etc/letsencrypt/live/$DOMAIN/fullchain.pem /etc/letsencrypt/live/$DOMAIN/privkey.pem > /etc/haproxy/certs/$DOMAIN.pem'
 * sudo chmod -R go-rwx /etc/haproxy/certs
 * sudo nano /etc/haproxy/haproxy.cfg
+* sudo service haproxy start (Check modification)
 
 # Content of hproxy/haproxy.cfg
 * Refer to 100-redirect_http_to_https
