@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# Do tack one in very esasy wat
-sed -i 's/listen 80;/listen 80 default_server;/g' /etc/nginx/sites-available/default
+# Do tack one in very easy way
+sed -i 's/listen 80:/listen 80 default_server:/g' /etc/nginx/sites-available/default
 nginx -s reload
