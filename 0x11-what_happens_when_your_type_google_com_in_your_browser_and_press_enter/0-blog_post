@@ -1,0 +1,66 @@
+What Happens When You Type https://www. google. Which one of the following will open www dot com in Your Browser and Press Enter? 
+ Do you ever think of how things go when a user inputs a URL and hits the Enter button on his browser? This simple action creates a rolling communication process that affects the various systems and technologies in the process. In this post, as a result, we will predict both the exact sequence moving from the DNS request to defining the TCP/IP, Firewall, HTTPS/SSL, Load Balancer, Web Server, Application Server and ending with the Databases. 
+ 
+ Step 1: DNS Request 
+ The first procedure in this process is the name resolution, where the domain name such as www. google. com is translated into IP address by the help of Domain Name System (DNS). Here’s how it works: 
+ 
+ Browser Cache: The browser then sends a request to the domain and it is fast to process due to the local cache of the browser. 
+ Operating System Cache: If not found, the request goes to the OS’s DNS resolver cache about the required domain name. 
+ Router Cache: If the OS cache does not have the detail, it passes the request to the specified DNS server, typically, the router and this also has a cache. 
+ ISP DNS Server: If the router does not have a cached result, then it sends the request to the DNS server of the ISP. 
+ Recursive Lookup: There is no answer at the ISP’s DNS server, the DNS server begins with the root, TLD (. com), the DNS server authoritative for Google. com. 
+ IP Address: Once the IP address is found, it is passed down the same chain back to the browser through which it entered. 
+ First step in processing the packet is to determine the TCP/IP connection that needs to be established. 
+ With the IP address, the browser needs to establish a connection to the server using the TCP/IP protocol suite:With the IP address, the browser needs to establish a connection to the server using the TCP/IP protocol suite: 
+ 
+ TCP Handshake: This is followed by a three-step cell phone courtesy that includes the cell phone tapping the hand of the other individual twice, The following are some of the cell phone etiquettes that I have come across: 
+ 
+ SYN: SYN (synchronize) packet is sent by the browser to the server. 
+ SYN-ACK: The server sends back another packet which is a SYN-ACK packet. 
+ ACK: The browser in turn, returns an ACK (acknowledge) packet back to the Server. 
+ IP Routing: The packets have to pass through several routers and switches at the internet to get to the server, all based in IP routing protocols.
+
+Step 3: Firewall 
+ As the request traverses the network, it may pass through several firewalls:As the request traverses the network, it may pass through several firewalls: 
+ 
+ Client-Side Firewall: Also, guarantees the corresponding permission for the outgoing connections from the user’s machine. 
+ Network Firewalls: Intermediary location networks may have firewalls to inspect and filter traffic to and from the router. 
+ Server-Side Firewall: This mechanism will be implemented on the server’s firewall which confirms that traffic from the outside world is genuine and eliminates all undesired traffic. 
+ Step 4: HTTPS/SSL 
+ Since the URL uses HTTPS, an SSL/TLS handshake is required to establish a secure connection:Since the URL uses HTTPS, an SSL/TLS handshake is required to establish a secure connection: 
+ 
+ SSL Handshake: The browser and the server exchange some parameters that are important for the creation of a secure connection that is referred to as the SSL handshake. 
+ Server Certificate: SSL carries information from the server to the browser and it sends its certificate to the browser. 
+ Certificate Verification: The browser then checks for the certificate with a list containing some of the accepted Certificate Authorities or CAs. 
+ Session Keys: To agree on what information they will exchange, both parties engage in key generation for encryption and decryption of data. 
+ Step 5: Load Balancer 
+ Once a secure connection is established, the request reaches the load balancer:Once a secure connection is established, the request reaches the load balancer: 
+ 
+ Distribution: Actually, the load balancer integrates the traffic into many hosts to avoid loading several visitors on one server. 
+ Health Checks: They constantly check the health status of the servers, and direct traffic only to the ‘online’ servers. 
+ Sticky Sessions: In some cases, there could be configuration like sticky sessions to make sure the requests of a given user go to the same server. 
+ Step 6: Web Server 
+ The load balancer forwards the request to one of the web servers:The load balancer forwards the request to one of the web servers: 
+ 
+ Request Handling: In receiving the request, such as through Apache, Nginx or any web server of choice, the web server is responsible to metabolize the URL as well as the HTTP headers. 
+ Static Content: If the request was made for a static content like images, CSS, JavaScript files, then it responds from the disk or the cache.
+
+Step 7: Application Server 
+ For dynamic content, the web server passes the request to the application server:For dynamic content, the web server passes the request to the application server: 
+ 
+ Business Logic: The application server (For example Node. js, Django, Ruby on Rails) performs the business logic which is needed to produce the content. 
+ Data Processing: This may include running server side scripts and/or performing queries, accessing databases or other services. 
+ Step 8: Database 
+ Often, generating a dynamic response involves querying a database:Often, generating a dynamic response involves querying a database: 
+ 
+ Database Query: As much as it applies, the application server sends a query to the database server for instance MySQL, PostgreSQL among others. 
+ Data Retrieval: The database analyzes it and sends back the results to the application server as per the query stated in the database language. 
+ Response Generation: It then uses the data to produce the final HTML contents that are returned to the user by the application server. 
+ The 9th step of email communication is the returning of the response. 
+ Back to Browser: The HTML program generated by the application server is then passed back to the web server and then forwarded to the load balancer. 
+ Secure Transmission: It then takes the encrypted response and goes back through the SSL/TLS connection to the client’s web browser. 
+ Rendering: The last step is for the browser to call for the HTML, CSS and JavaScript and build the page. This involves building the actual structure of the HTML page, applying layouts and scripting on it using JavaScript. 
+ Conclusion 
+ Typing https://www. google. just typing ‘google searching’ in an url bar by typing in the address and pressing Enter initiates a highly synchronized chain of DNS resolution, TCP/IP connections, proxies, secure SSL/TLS connections,
+ load balancers, web servers, application servers and databases. All of these components have their importance to make it possible that you get the requested content with less delay and in a secured manners.
+ Although knowing this process contributes to enhancing the recognition of how the web functions, it also provides insights into the potential incidents in software engineering, regardless of your specialization in the front-end, systems dependability, or back-end aspect.
