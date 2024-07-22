@@ -1,4 +1,4 @@
-sudo apt install -y ufw
+sudo apt install ufw
 sudo ufw default allow outgoing
 sudo ufw defult deny incoming
 sudo ufw allow 22
