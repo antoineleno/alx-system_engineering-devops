@@ -1,3 +1,4 @@
+sudo apt update
 sudo apt install -y ufw
 sudo ufw default allow outgoing
 sudo ufw defult deny incoming
