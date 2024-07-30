@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """0-gather_data_from_an_API module"""
 
-import sys
 import requests
+import sys
 
 
 if __name__ == "__main__":
