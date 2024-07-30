@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """1 - export to csv module"""
 
+import csv
 import requests
 import sys
-import csv
 
 
 if __name__ == "__main__":

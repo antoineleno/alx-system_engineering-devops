@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """0-gather_data_from_an_API module"""
 
+import json
 import requests
 import sys
-import json
 
 
 if __name__ == "__main__":
