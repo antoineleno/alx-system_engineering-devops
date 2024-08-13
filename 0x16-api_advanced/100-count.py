@@ -4,6 +4,7 @@ import requests
 import re
 from collections import Counter
 
+
 def count_words(subreddit, word_list):
     """
     Recursively queries the Reddit API to count occurrences of keywords in
@@ -17,14 +18,21 @@ def count_words(subreddit, word_list):
         headers = {'User-Agent': 'Mozilla/5.0'}
         url = f'https://www.reddit.com/r/{subreddit}/hot.json'
         params = {'after': after} if after else {}
-        
+
         try:
-            response = requests.get(url, headers=headers, params=params, timeout=10)
+            response = requests.get(url,
+                                    headers=headers,
+                                    params=params,
+                                    timeout=10)
             if response.status_code == 200:
                 data = response.json()
                 posts = data.get('data', {}).get('children', [])
                 after = data.get('data', {}).get('after', None)
-                titles = [post.get('data', {}).get('title', '') for post in posts]
+                titles = [
+                    post.get('data', {}).get('title', '')
+                    for post in posts
+                    ]
+
                 return titles, after
             else:
                 return [], None
@@ -43,10 +51,10 @@ def count_words(subreddit, word_list):
                 if word in word_list:
                     word_count[word] += 1
         return word_count
-    
+
     def print_results(word_count):
         """
-        Prints the results sorted by count (descending) and then alphabetically.
+        print the result
         """
         if not word_count:
             return
@@ -54,7 +62,6 @@ def count_words(subreddit, word_list):
         for word, count in sorted_words:
             print(f"{word} {count}")
 
-    # Start recursive fetching and counting
     def recurse(subreddit, word_list, hot_list, after=None):
         titles, new_after = fetch_posts(subreddit, after)
         if titles:
