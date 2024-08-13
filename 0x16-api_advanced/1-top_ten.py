@@ -1,5 +1,9 @@
 #!/usr/bin/python3
+"""top_ten module"""
+
+
 import requests
+
 
 def top_ten(subreddit):
     """
@@ -7,7 +11,7 @@ def top_ten(subreddit):
     """
     headers = {'User-Agent': 'Mozilla/5.0'}
     url = f'https://www.reddit.com/r/{subreddit}/hot.json'
-    
+
     try:
         response = requests.get(url, headers=headers, timeout=10)
         if response.status_code == 200:
