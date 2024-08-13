@@ -1,22 +1,20 @@
 #!/usr/bin/python3
-"""
-Script to query Reddit API
-"""
-
 import requests
 
 
 def number_of_subscribers(subreddit):
-    """Return the number of subscribers on a given subreddit"""
-    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    response_data = requests.get(url, headers={"User-Agent": "Mozilla/5.0"},
-                                 allow_redirects=False)
-    if response_data.status_code != 200:
-        return 0
-    else:
-        data = response_data.json()
-        subscribers = data['data']['subscribers']
-        return subscribers
+    """
+    Queries the Reddit API and returns the number of subscribers
+    for a given subreddit. Returns 0 if an invalid subreddit is given.
+    """
+    headers = {'User-Agent': 'Mozilla/5.0'}
+    url = f'https://www.reddit.com/r/{subreddit}/about.json'
 
-if __name__ == "__main__":
-    pass
+    try:
+        response = requests.get(url, headers=headers, timeout=10)
+        if response.status_code == 200:
+            data = response.json()
+            return data.get('data', {}).get('subscribers', 0)
+        return 0
+    except requests.RequestException:
+        return 0
