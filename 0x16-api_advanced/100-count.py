@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 """Count word modeule"""
-import requests
-import re
 from collections import Counter
+import re
+import requests
+
+
 
 
 def count_words(subreddit, word_list):
