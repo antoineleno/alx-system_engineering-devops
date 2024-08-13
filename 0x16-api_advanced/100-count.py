@@ -7,8 +7,7 @@ import requests
 
 def count_words(subreddit, word_list):
     """
-    Recursively queries the Reddit API to count occurrences of keywords in
-    the titles of hot articles for a given subreddit. Prints sorted results.
+   query reddit api
     """
     def fetch_posts(subreddit, after=None):
         """
