@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+# Installs and configures HAproxy load balancer
+
+# Install HAproxy
+apt-get update
+apt-get install -y haproxy
+
+# Enable HAproxy (for Ubuntu >= 16.04)
+sed -i 's/ENABLED=0/ENABLED=1/' /etc/default/haproxy
+
+# Configure HAproxy
+cat <<EOF > /etc/haproxy/haproxy.cfg
+global
+    log /dev/log    local0
+    log /dev/log    local1 notice
+    chroot /var/lib/haproxy
+    stats timeout 30s
+    user haproxy
+    group haproxy
+    daemon
+
+defaults
+    log     global
+    mode    http
+    option  httplog
+    option  dontlognull
+    timeout connect 5000
+    timeout client  50000
+    timeout server  50000
+
+frontend http_front
+    bind *:80
+    default_backend http_back
+
+backend http_back
+    balance roundrobin
+    server web-01 [WEB_01_IP]:80 check
+    server web-02 [WEB_02_IP]:80 check
+EOF
+
+# Restart HAproxy
+service haproxy restart
